@@ -25,10 +25,6 @@ From branch : **_terraform-11/master_**
 
 * **_IAM Role Policy Attachment (Terraform 11 supported code)_**
 
-From branch : **_terraform-12/master_** *work in progress*
-
-* **_IAM Role Policy Attachment (Terraform 11 supported code - work in progres)_**
-
 
 ---
 
@@ -47,7 +43,17 @@ To use this module, add the following call to your code:
 
 ```tf
 module "<layer>-iam-role-policy-attachment-<AccountID>" {
-  source = "git::https://github.com/nitinda/terraform-module-aws-iam-role-policy-attachment.git?ref=master"
+  source = "git::https://github.com/nitinda/terraform-module-aws-iam-role-policy-attachment.git?ref=terraform-11/master"
+
+
+  providers = {
+    "aws"  = "aws.services"
+  }
+
+  ## IAM Role Policy
+  iam_role_name       = "${var.iam_role_name}"
+  iam_role_policy_arn = "${var.iam_role_policy_arn}"
+}
 
 
 }
@@ -61,15 +67,16 @@ The variables required in order for the module to be successfully called from th
 
 |         **_Variable_**          |        **_Description_**            |   **_Type_**   |
 |---------------------------------|-------------------------------------|----------------|
+| iam_role_name                   | The role name                       | string         |
+| iam_role_policy_arn             | The role policy arn                 | string         |
 
 
 
-Details are in respective branch.
 
 
 ## Outputs
 
-* **_N/A_**
+* **_None_**
 
 
 
