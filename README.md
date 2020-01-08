@@ -54,8 +54,8 @@ module "iam_role_policy_attachment" {
   }
 
   ## IAM Role Policy
-  iam_role_name       = var.iam_role_name
-  iam_role_policy_arn = var.iam_role_policy_arn
+  role       = var.role
+  policy_arn = var.policy_arn
 
 }
 ```
