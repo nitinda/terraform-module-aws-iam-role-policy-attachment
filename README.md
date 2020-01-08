@@ -61,6 +61,8 @@ The variables required in order for the module to be successfully called from th
 
 |**_Variable_** | **_Description_** | **_Type_** | **_Argument Status_** |
 |:----|:----|-----:|-----:|
+| **_role_** | The role name | _string_ | **_Required_** |
+| **_policy\_arn_** | The role policy arn | _string_ | **_Required_** |
 
 
 
