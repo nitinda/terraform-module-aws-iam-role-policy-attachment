@@ -59,12 +59,9 @@ module "iam_role_policy_attachment" {
 The variables required in order for the module to be successfully called from the deployment repository are the following:
 
 
-|         **_Variable_**          |        **_Description_**            |   **_Type_**   |
-|---------------------------------|-------------------------------------|----------------|
+|**_Variable_** | **_Description_** | **_Type_** | **_Argument Status_** |
+|:----|:----|-----:|-----:|
 
-
-
-Details are in respective branch.
 
 
 ## Outputs
