@@ -47,8 +47,15 @@ To use this module, add the following call to your code:
 
 ```tf
 module "iam_role_policy_attachment" {
-  source = "git::https://github.com/nitinda/terraform-module-aws-iam-role-policy-attachment.git?ref=master"
+  source = "git::https://github.com/nitinda/terraform-module-aws-iam-role-policy-attachment.git?ref=terraform-12/master"
 
+  providers = {
+    aws = aws.services
+  }
+
+  ## IAM Role Policy
+  iam_role_name       = var.iam_role_name
+  iam_role_policy_arn = var.iam_role_policy_arn
 
 }
 ```
