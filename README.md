@@ -46,6 +46,21 @@ module "iam_role_policy_attachment" {
 
 }
 ```
+
+```tf
+module "iam_role_policy_attachment" {
+  source = "git::https://github.com/nitinda/terraform-module-aws-iam-role-policy-attachment.git?ref=terraform-12/master"
+
+  providers = {
+    aws = aws.services
+  }
+
+  ## IAM Role Policy
+  role       = module.iam_role.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM"
+
+}
+```
 ---
 
 ## _Inputs_
