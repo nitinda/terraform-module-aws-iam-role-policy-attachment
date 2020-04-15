@@ -47,8 +47,15 @@ To use this module, add the following call to your code:
 
 ```tf
 module "iam_role_policy_attachment" {
-  source = "git::https://github.com/nitinda/terraform-module-aws-iam-role-policy-attachment.git?ref=master"
+  source = "git::https://github.com/nitinda/terraform-module-aws-iam-role-policy-attachment.git?ref=terraform-12/master"
 
+  providers = {
+    aws = aws.services
+  }
+
+  ## IAM Role Policy
+  role       = var.role
+  policy_arn = var.policy_arn
 
 }
 ```
@@ -59,12 +66,11 @@ module "iam_role_policy_attachment" {
 The variables required in order for the module to be successfully called from the deployment repository are the following:
 
 
-|         **_Variable_**          |        **_Description_**            |   **_Type_**   |
-|---------------------------------|-------------------------------------|----------------|
+|**_Variable_** | **_Description_** | **_Type_** | **_Argument Status_** |
+|:----|:----|-----:|-----:|
+| **_role_** | The role name | _string_ | **_Required_** |
+| **_policy\_arn_** | The role policy arn | _string_ | **_Required_** |
 
-
-
-Details are in respective branch.
 
 
 ## Outputs
