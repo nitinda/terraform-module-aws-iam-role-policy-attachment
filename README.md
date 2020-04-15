@@ -1,49 +1,36 @@
-# Terraform Module Name: terraform-module-iam-role-policy-attachment
+# _Terraform Module: terraform-module-iam-role-policy-attachment_
 
 
-## General
+## _General_
 
-This module may be used to create **_IAM Role Policy Attachment_** resources in AWS cloud provider..
-
----
-
-
-## Prerequisites
-
-This module needs **_Terraform 0.11.14_** or newer.
-You can download the latest Terraform version from [here](https://www.terraform.io/downloads.html).
-
-This module deploys aws services details are in respective feature branches.
+_Terraform module Provides an_ **_IAM Role Policy Attachment_** _resources in AWS cloud provider..._
 
 ---
 
-## Features Branches
 
-Below we are able to check the resources that are being created as part of this module call:
+## _Prerequisites_
 
-From branch : **_terraform-11/master_**
+_This module needs_ **_Terraform 0.12.18_** _or newer._
+_You can download the latest Terraform version from_ [_here_](https://www.terraform.io/downloads.html).
 
-* **_IAM Role Policy Attachment (Terraform 11 supported code)_**
-
-From branch : **_terraform-12/master_** *work in progress*
-
-* **_IAM Role Policy Attachment (Terraform 11 supported code - work in progres)_**
-
+_This module deploys aws services details are in respective feature branches._
 
 ---
 
-## Below are the resources that are launched by this module
+## _Features_
+
+_Below we are able to check the resources that are being created as part of this module call:_
 
 * **_IAM Role Policy Attachment_**
 
 
 ---
 
-## Usage
+## _Usage_
 
-## Using this repo
+## _Using this repo_
 
-To use this module, add the following call to your code:
+_To use this module, add the following call to your code:_
 
 ```tf
 module "iam_role_policy_attachment" {
@@ -61,53 +48,46 @@ module "iam_role_policy_attachment" {
 ```
 ---
 
-## Inputs
+## _Inputs_
 
-The variables required in order for the module to be successfully called from the deployment repository are the following:
-
+_The variables required in order for the module to be successfully called from the deployment repository are the following:_
 
 |**_Variable_** | **_Description_** | **_Type_** | **_Argument Status_** |
-|:----|:----|-----:|-----:|
-| **_role_** | The role name | _string_ | **_Required_** |
-| **_policy\_arn_** | The role policy arn | _string_ | **_Required_** |
+|:----|:----|-----:|:---:|
+| **_role_** | _The role name the policy should be applied to_ | _string_ | **_Required_** |
+| **_policy\_arn_** | _The ARN of the policy you want to apply_ | _string_ | **_Required_** |
 
 
+---
 
-## Outputs
+## _Outputs_
+
+### _General_
+
+_This module has the following outputs:_
 
 * **_N/A_**
 
 
+---
 
-### Usage
-In order for the variables to be accessed on module level please use the syntax below:
+### _Usage_
+
+_In order for the variables to be accessed at module level please use the syntax below:_
 
 ```tf
 module.<module_name>.<output_variable_name>
 ```
 
-If an output variable needs to be exposed on root level in order to be accessed through terraform state file follow the steps below:
 
-- Include the syntax above in the network layer output terraform file.
-- Add the code snippet below to the variables/global_variables file.
+_The output variable is able to be accessed through terraform state file using the syntax below:_
 
 ```tf
-data "terraform_remote_state" "<module_name>" {
-  backend = "s3"
-
-  config {
-    bucket = <bucket_name> (i.e. "s3-webstack-terraform-state")
-    key    = <state_file_relative_path> (i.e. "env:/${terraform.workspace}/4_Networking/terraform.tfstate")
-    region = <bucket_region> (i.e. "eu-central-1")
-  }
-}
+data.terraform_remote_state.<layer_name>.<output_variable_name>
 ```
 
-- The output variable is able to be accessed through terraform state file using the syntax below:
+---
 
-```tf
-"${data.terraform_remote_state.<module_name>.<output_variable_name>}"
-```
+## _Authors_
 
-## Authors
-Module maintained by Module maintained by the - **_Nitin Das_**
+_Module maintained by Module maintained by the -_ **_Nitin Das_**
